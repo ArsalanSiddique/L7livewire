@@ -6,7 +6,10 @@ use Livewire\Component;
 
 class Helloworld extends Component
 {
-    public $name = "Arsalan";
+    private $name = "Arsalan";
+    public $message1 = "Placeholder";
+    public $message2 = "Placeholder";
+    public $message3 = "Placeholder";
 
     public function mount() {
         $this->name = "Ahmed";
