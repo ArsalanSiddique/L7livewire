@@ -81,8 +81,9 @@
             @endif
 
             <div class="content">
-                @livewire('helloworld')
-                @livewire('test2')
+            {{-- @livewire('helloworld')
+                @livewire('test2') --}}
+                @livewire('counter')
                 <div class="title m-b-md">
                     Laravel
                 </div>
