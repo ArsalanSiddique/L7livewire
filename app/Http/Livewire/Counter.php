@@ -8,47 +8,37 @@ class Counter extends Component
 {
 
     public $counter;
-    public $set;
-    public $hydrate;
+    public $steps;
 
-    public $updating;
-    public $updated;
+    public $listeners = [
+        "incrementEmit" => "increment",
+        "decrementEmit" => "decrement"
+    ];
 
-    public function increment($step) {
-        $this->counter += $step;
-    }
+    // public function increment() {
+    //     $this->emit("incrementEmit");
+    //     // $this->counter++;
+    // }
 
-    public function decrement($step) {
-        $this->counter -= $step;
-    }
+    // public function decrement() {
+    //     $this->emit("decrementEmit");
+    //     // $this->counter--;
+    // }
 
-    public function plus() {
-        $this->counter++;
-    }
-
-    public function minus() {
-        $this->counter--;
-    }
-
-    public function mount($steps)
+    public function increment($steps)
     {
-        $this->counter = $steps;
-        $this->set = 1;
-        $this->hydrate = 0;
-        $this->updating = 0;
-        $this->updated = 0;
+        $this->counter+= $steps;
     }
 
-    public function hydrate() {
-        $this->hydrate++;
+    public function decrement($steps)
+    {
+        $this->counter-= $steps;
     }
 
-    public function updatingSet() {
-        $this->updating++;
-    }
-
-    public function updatedSet() {
-        $this->updated++;
+    public function mount()
+    {
+        $this->counter = 1;
+        $this->steps = 1;
     }
 
     public function render()
